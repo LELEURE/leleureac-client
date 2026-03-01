@@ -1,34 +1,41 @@
-# RedM Warden — Bot Client 🤠
+# LELEUREAC — Client Bot 🤠
 
 Bot Discord à installer sur les serveurs de cheat RedM.  
-Il détecte automatiquement les nouveaux membres et les reporte à la base de données communautaire RedM Warden.
+Il détecte automatiquement les membres et les reporte à la base de données communautaire.
 
 ---
 
 ## Installation
 
 ### 1. Prérequis
-- Node.js >= 18
-- Un compte Discord pour créer le bot
+- Node.js >= 18 → https://nodejs.org
+- Git → https://git-scm.com
 
-### 2. Créer le bot Discord
-
-1. Va sur https://discord.com/developers/applications
-2. **New Application** → donne un nom
-3. Onglet **Bot** → **Reset Token** → copie le token
-4. Active : **Server Members Intent**
-5. Onglet **OAuth2** → **URL Generator** → coche `bot` → permission `View Channels` + `Read Message History`
-6. Copie le lien et invite le bot sur le serveur de cheat
-
-### 3. Installer le projet
-
+### 2. Cloner le projet
 ```bash
-git clone https://github.com/TON_COMPTE/redm-warden-client.git
-cd redm-warden-client
+git clone https://github.com/LELEURE/LELEUREAC-client.git
+cd LELEUREAC-client
 npm install
 ```
 
-### 4. Configurer le .env
+### 3. Créer ton bot Discord
+
+1. Va sur https://discord.com/developers/applications
+2. Clique **New Application** → donne un nom
+3. Onglet **Bot** → **Reset Token** → copie le token
+4. Active uniquement : **Server Members Intent**
+5. Onglet **OAuth2** → **URL Generator**
+   - Coche : `bot`
+   - Permission : `View Channels`
+6. Copie le lien généré et invite le bot sur le serveur
+
+### 4. Obtenir une clé API
+
+Contacte l'administrateur de la communauté sur Discord pour obtenir :
+- L'URL de l'API
+- Ta clé API personnelle
+
+### 5. Configurer le .env
 
 ```bash
 cp .env.example .env
@@ -37,16 +44,13 @@ cp .env.example .env
 Remplis le fichier `.env` :
 
 ```
-DISCORD_TOKEN=ton_token_bot
-API_URL=https://api.redmwarden.fr
-API_KEY=rdw_la_cle_fournie_par_admin
-GUILD_NAME=Nom de ton serveur
+DISCORD_TOKEN=ton_token_bot_discord
+API_URL=url_fournie_par_ladmin
+API_KEY=cle_fournie_par_ladmin
+GUILD_NAME=Nom exact du serveur
 ```
 
-> La clé API (`API_KEY`) est fournie par l'administrateur de RedM Warden.  
-> Contacte-le sur Discord pour en obtenir une.
-
-### 5. Lancer le bot
+### 6. Lancer le bot
 
 ```bash
 npm run dev
@@ -56,12 +60,13 @@ npm run dev
 
 ## Ce que fait le bot
 
-- Écoute les nouveaux membres qui rejoignent le serveur
-- Envoie leur Discord ID à l'API centrale RedM Warden
-- C'est tout — le bot ne lit pas les messages, ne modère pas, n'a aucune autre action
+- Au démarrage : scanne tous les membres existants du serveur
+- En continu : détecte les nouveaux membres
+- Ignore les autres bots
 
 ## Permissions requises
 
-Le bot n'a besoin que de :
 - `View Channels`
-- `Server Members Intent` (activé dans le Developer Portal)
+- **Server Members Intent** (activé dans le Developer Portal)
+
+Le bot ne lit pas les messages et ne modère pas.
