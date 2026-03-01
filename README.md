@@ -1,56 +1,56 @@
 # LELEUREAC — Client Bot 🤠
 
-Bot Discord à installer sur les serveurs de cheat RedM.  
-Il détecte automatiquement les membres et les reporte à la base de données communautaire.
+Discord bot to install on RedM cheat servers.  
+It automatically detects members and reports them to the community database.
 
 ---
 
 ## Installation
 
-### 1. Prérequis
+### 1. Requirements
 - Node.js >= 18 → https://nodejs.org
 - Git → https://git-scm.com
 
-### 2. Cloner le projet
+### 2. Clone the project
 ```bash
 git clone https://github.com/LELEURE/LELEUREAC-client.git
 cd LELEUREAC-client
 npm install
 ```
 
-### 3. Créer ton bot Discord
+### 3. Create your Discord bot
 
-1. Va sur https://discord.com/developers/applications
-2. Clique **New Application** → donne un nom
-3. Onglet **Bot** → **Reset Token** → copie le token
-4. Active uniquement : **Server Members Intent**
-5. Onglet **OAuth2** → **URL Generator**
-   - Coche : `bot`
-   - Permission : `View Channels`
-6. Copie le lien généré et invite le bot sur le serveur
+1. Go to https://discord.com/developers/applications
+2. Click **New Application** → give it a name
+3. **Bot** tab → **Reset Token** → copy the token
+4. Enable only: **Server Members Intent**
+5. **OAuth2** tab → **URL Generator**
+   - Check: `bot`
+   - Permission: `View Channels`
+6. Copy the generated link and invite the bot to the server
 
-### 4. Obtenir une clé API
+### 4. Get an API key
 
-Contacte l'administrateur de la communauté sur Discord pour obtenir :
-- L'URL de l'API
-- Ta clé API personnelle
+Contact the community administrator on Discord to get:
+- The API URL
+- Your personal API key
 
-### 5. Configurer le .env
+### 5. Configure the .env
 
 ```bash
 cp .env.example .env
 ```
 
-Remplis le fichier `.env` :
+Fill in the `.env` file:
 
 ```
-DISCORD_TOKEN=ton_token_bot_discord
-API_URL=url_fournie_par_ladmin
-API_KEY=cle_fournie_par_ladmin
-GUILD_NAME=Nom exact du serveur
+DISCORD_TOKEN=your_discord_bot_token
+API_URL=url_provided_by_admin
+API_KEY=key_provided_by_admin
+GUILD_NAME=Exact name of the server
 ```
 
-### 6. Lancer le bot
+### 6. Start the bot
 
 ```bash
 npm run dev
@@ -58,15 +58,15 @@ npm run dev
 
 ---
 
-## Ce que fait le bot
+## What the bot does
 
-- Au démarrage : scanne tous les membres existants du serveur
-- En continu : détecte les nouveaux membres
-- Ignore les autres bots
+- On startup: scans all existing members of the server
+- Continuously: detects new members joining
+- Ignores other bots
 
-## Permissions requises
+## Required permissions
 
 - `View Channels`
-- **Server Members Intent** (activé dans le Developer Portal)
+- **Server Members Intent** (enabled in the Developer Portal)
 
-Le bot ne lit pas les messages et ne modère pas.
+The bot does not read messages and does not moderate.
