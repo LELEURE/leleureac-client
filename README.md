@@ -45,7 +45,7 @@ Fill in the `.env` file:
 
 ```
 DISCORD_TOKEN=your_discord_bot_token
-API_URL=url_provided_by_admin
+API_URL=https://leleureac-production.up.railway.app
 API_KEY=key_provided_by_admin
 GUILD_NAME=Exact name of the server
 ```
